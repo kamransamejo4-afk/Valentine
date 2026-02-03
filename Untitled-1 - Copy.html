@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kamran ❤️ Ayesha</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+        transition: background 1s ease-in-out;
+    }
+
+    h1 {
+        margin-top: 80px;
+        font-size: 3.2rem;
+        animation: fadeIn 2s ease-in-out;
+        text-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    p {
+        font-size: 1.4rem;
+        width: 70%;
+        margin: 20px auto;
+        line-height: 1.6;
+    }
+
+    /* Buttons */
+    button {
+        padding: 15px 35px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    #yesBtn {
+        background: #ffffff;
+        color: #ff1744;
+    }
+
+    #yesBtn:hover {
+        transform: scale(1.15);
+    }
+
+    #noBtn {
+        background: #ff1744;
+        color: #fff;
+        position: absolute;
+    }
+
+    #funnyText {
+        margin-top: 25px;
+        font-size: 1.3rem;
+        min-height: 50px;
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: fixed;
+        bottom: -10px;
+        color: rgba(255,255,255,0.8);
+        font-size: 20px;
+        animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0); opacity: 1;}
+        100% { transform: translateY(-120vh); opacity: 0;}
+    }
+
+    /* Typewriter */
+    .typewriter {
+        display: inline-block;
+        overflow: hidden;
+        border-right: 3px solid #fff;
+        white-space: nowrap;
+        animation: typing 3.5s steps(40) forwards, blink 0.7s step-end infinite alternate;
+        font-size: 1.4rem;
+        width: 0;
+    }
+
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    /* Fade effect */
+    @keyframes fadeIn {
+        0% {opacity: 0; transform: translateY(-10px);}
+        100% {opacity: 1; transform: translateY(0);}
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<iframe width="0" height="0" src="https://www.youtube.com/results?search_query=boyfriend+karan+aujla" allow="autoplay"></iframe>
+
+<h1 class="typewriter">Hey, On this special Day I Wanna say something.
+    <br><br>
+    
+    I LOVEEE YOUU SOOO MUCHHH MERI JAAN ❤️ </h1>
+
+<p>Please Say YESSSSSS Januuu… WILL YOU MARRY ME? 😌</p>
+
+<div style="margin-top:40px;">
+    <button id="yesBtn" onclick="showLove()">YES 💖</button>
+    <button id="noBtn" onclick="clickedNo()">NO 😭</button>
+</div>
+
+<p id="funnyText"></p>
+
+<script>
+/* Floating hearts generator */
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.className = "heart";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (20 + Math.random()*20) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 400);
+
+/* No button logic */
+let noClicks = 0;
+let dodgeForever = false;
+
+const funnyMessages = [
+    "No?",
+    "Mera dil toot jayega yaar 💔",
+    "Itna bhi kya sochna yaar… 😭",
+    "Ap k ek YES se meri dunya abad ho jayegi jaanu 😩",
+    "No again? 😳",
+    "Reham karo yaar 😭",
+    "Januu men ro dunga abhi 😭",
+    "Dil ke saath mat khelo na kinni 😤",
+    "Socho… shayad YES kar do 😏",
+    "Aik baar YES bol kar dekh lo 😌",
+    "Yaar Ayeshaaa 😭",
+    "Batao kya galti hui h mujhsy?",
+    "No? Really?? 😳",
+    "Itni mehnat ki h yaar ye banany men 😭",
+    "Kitni zaalim ho yaar 😭",
+    "YES bolo warna apni katti 😤",
+    "Abhi bhi No??? 😭",
+    "Mera dil bechain ho rha 😩",
+    "Itni saari mehnat ka kya? 😭",
+    "Meri pyaarra bacha, Haan bol do na 😭",
+    "Dil todna buri baat h yaar 😤",
+    "Yeh No zyada hogaye 😭",
+    "Meri sainnn plzz 😭",
+    "Mujhy abhi bhi umeed h ap han bolen gi 😌",
+    "Yes bola karo kabhi kabhi 😩",
+    "No is hurting my soul 😭",
+    "Acha chalo… No hi sahi 😭",
+    "Lekin seriously? 😭",
+    "Meri battery low ho rahi 😩",
+    "Iss No ne zindagi mushkil kr di 😭",
+    "Ayeshaaaa plsss 😭",
+    "It's hurting yar, itni dfa Noo 😔",
+    "Meri to sari mehnat barbad hogyi 😭",
+    "Ek chota YES hi keh do 😌",
+    "Itni zaalim to na bano yaar 😭",
+    "Mujhe lagta hai ap maze le rahi ho 😤",
+    "Bas karo ab No 😭",
+    "Itna cute page banaya 😭",
+    "Ek YES ke bina meri zindagi adhuri 😩",
+    "40 No ho gaye 😭",
+    "Ohoooo 😭",
+    "Dil dukhta hai jaanuuu 😔",
+    "Apka level alag hai bhaee 😭",
+    "Please reconsider this shareef sa larka 🙏",
+    "I wanna cry 😭",
+    "No ka toofan kab rukay ga? 😳",
+    "Mujhe ap se ye umeed nh thi jaanu 😩",
+    "Phir No? 😭",
+    "YES bolo aur khushi ajae gi 😌",
+    "Half century 😭",
+    "Apka pyar milna waqae mushkil h! 😭",
+    "No clicking champion 😭",
+    "Men pasand nh hun? 😭",
+    "Itna No koi kaise bol sakta 😭",
+    "Dil toot gaya 💔",
+    "No queen 👑😭",
+    "Plsss Ayesha 😭",
+    "Ab to haan bol do 😔",
+    "Ab bhi time hai 😌",
+    "But No again? 😭",
+    "Main haar raha 😭",
+    "Ap nahi maan rahi 😳",
+    "Mujhy apne ghar jana h 😭",
+    "Men to toot gaya 😩",
+    "65 No record 😭",
+    "Mazak bana rahi ho 😤",
+    "Ek Yes please 😭",
+    "Bas bhi karo jannu 😳",
+    "Bari himmat h yaar ap men 😭",
+    "70 No!!! 😭",
+    "Bas bhi karo 😭",
+    "Itna torture 😩",
+    "Heartbreak meter full 💔",
+    "No button insult 😭",
+    "Please 😩",
+    "Bohot zyada No 😭",
+    "Man jayen na meri sain😔",
+    "Tsunami of NO 😭",
+    "Ek Yes aur sab theek 😌",
+    "80 No??? 😳",
+    "Last chance 😭",
+    "Pakka ab YES? 😳",
+    "Phir No… uff 😭",
+    "I'm dyingg 😭",
+    "Jannuu why itna gussa 😭",
+    "No button thak gaya 😩",
+    "Mujhe rona aa raha 😭",
+    "Unstoppable ho 😳",
+    "Please man jayen na mera shonaa babyyyy 😭",
+    "No… insane 😭",
+    "Bas 😭",
+    "Kitne No chahiye 😩",
+    "YES bol den 😭",
+    "Heartbroken 😔",
+    "Meri jaan aca to na kren 😭",
+    "Stop 😫",
+    "Torture mode 😭",
+    "Zaalim 😳",
+    "Ek aur No? 😭",
+    "Ap zorr ho sach men 😤💔"
+];
+
+function clickedNo() {
+    noClicks++;
+
+    if (noClicks <= 100) {
+        document.getElementById("funnyText").innerHTML = funnyMessages[noClicks - 1];
+        moveButton();
+    } else {
+        dodgeForever = true;
+        document.getElementById("funnyText").innerHTML = "Ab ap mana kr ke dikhaen 😤";
+    }
+}
+
+function moveButton() {
+    const btn = document.getElementById("noBtn");
+    btn.style.left = Math.random() * (window.innerWidth - 150) + "px";
+    btn.style.top = Math.random() * (window.innerHeight - 150) + "px";
+}
+
+document.getElementById("noBtn").addEventListener("mouseover", function () {
+    if (dodgeForever) moveButton();
+});
+
+/* YES page */
+function showLove() {
+    document.body.innerHTML = `
+        <h1 style="margin-top:120px; font-size:3.5rem; animation: fadeIn 2s;">My Jaan Said YES! ❤️</h1>
+        <p style="font-size:1.6rem; width:70%; margin:auto; line-height:1.8;">
+            Meri pyaari jaan, thank you for saying YES & choosing ME ❤️!   
+            <br><br>
+            You are precious, special & my whole life.  
+            <br><br>
+            Happy Valentine’s Day ❤️  
+            From your one and only, with all my heart — Only Your's Forever Januu.
+        </p>
+    `;
+}
+</script>
+
+</body>
+</html>
